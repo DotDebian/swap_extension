@@ -1,0 +1,38 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "Shopify Scraper",
+  "version": "1.0.3",
+  "description": "Shopify Scraper",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": {
+      "16": "img/logo.png",
+      "24": "img/logo.png",
+      "32": "img/logo.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["overlay/js/inject.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "js/content.js"
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "https://loox.io/widget/*",
+    "*://*.happyscraper.com/*",
+    "<all_urls>",
+    "webRequest",
+    "webNavigation",
+    "*://*/*",
+    "webRequestBlocking"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self' 'unsafe-eval'"
+}
